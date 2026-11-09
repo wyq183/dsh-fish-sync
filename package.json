@@ -1,0 +1,28 @@
+{
+  "name": "@dsh-external/dsh-fish-sync",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    "./client": "./lib/client.js",
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "description": "大肥鱼与小肥鱼的记忆同步：两端对等 HTTP，按 sha256 比对、按 mtime 收敛冲突，只同步「任务」与「今日记忆」。",
+  "license": "MIT",
+  "scripts": {
+    "check": "node --check lib/index.js && node --check lib/manifest.js && node --check lib/sync.js && node --check lib/server.js && node --check lib/identity.js && node --check lib/cli.js && node --check lib/discovery.js && node --check lib/pairing.js && node --check lib/http.js",
+    "test": "node test/offline.mjs && node test/load.mjs",
+    "cli": "node lib/cli.js"
+  },
+  "dsh": {
+    "client": {
+      "platform": "web",
+      "inject": []
+    },
+    "bundle": {}
+  },
+  "bin": {
+    "fish-sync": "./lib/cli.js"
+  }
+}
